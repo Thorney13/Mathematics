@@ -101,4 +101,21 @@ inline Vector3D Cross(const Vector3D& a, const Vector3D& b)
                      a.x * b.y - a.y * b.x));
 }
 
+inline float Lagrange(const Vector3D& a, const Vector3D& b)
+{
+    Vector3D cross = Cross(a, b);
+    float x = pow(cross.x, 2);
+    float y = pow(cross.y, 2);
+    float z = pow(cross.z, 2);
+    
+    return (x+y+z);
+}
+
+inline float ScalarTriple(const Vector3D& a, const Vector3D& b, const Vector3D& c)
+{
+    Vector3D cross = Cross(a, b);
+
+    return (Dot(cross, c));
+}
+
 #endif // VECTOR3D_H
